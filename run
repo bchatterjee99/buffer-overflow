@@ -2,7 +2,7 @@
 
 #sudo sysctl -w kernel.randomize_va=0
 
-file=aaa.c
+file=badcode.c
 flags="-g -z execstack -fno-stack-protector"
 
 if gcc $flags $file; then
