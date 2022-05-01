@@ -1,0 +1,20 @@
+#-*-sh-*-
+
+file=overflow.asm
+
+tput reset
+if as -o overflow.o $file; then # gas assembler
+# if nasm -f elf64 -o faltu.o $file; then # nasm
+    hexdump -C overflow.o
+    ld -o overflow overflow.o
+    echo -e "\n\n  exe banano hoe geche\n\n"
+    ./overflow
+else
+    echo -e "\n\n  hocche na\n\n"
+fi
+
+
+
+# https://stackoverflow.com/questions/40305965/does-each-push-instruction-push-a-multiple-of-8-bytes-on-x64
+# https://stackoverflow.com/questions/62771323/why-we-cant-move-a-64-bit-immediate-value-to-memory
+# https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
