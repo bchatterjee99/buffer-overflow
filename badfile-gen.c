@@ -68,6 +68,61 @@ int asm1(char * code)
     
 }
 
+int asm2(char * code)
+{
+    int idx = 0;
+    // opcode directly hexdump theke neoa
+    code[idx++] = 0xb8;    code[idx++] = 0x6f;
+    code[idx++] = 0xff;    code[idx++] = 0xff;
+    code[idx++] = 0xff;    code[idx++] = 0x48;
+    code[idx++] = 0xc1;    code[idx++] = 0xe0;
+    code[idx++] = 0x38;    code[idx++] = 0x48;
+    code[idx++] = 0xc1;    code[idx++] = 0xe8;
+    code[idx++] = 0x38;    code[idx++] = 0x50;
+    code[idx++] = 0xb8;    code[idx++] = 0x2f;
+    code[idx++] = 0x65;    code[idx++] = 0x63;
+    code[idx++] = 0x68;    code[idx++] = 0x48;
+    code[idx++] = 0xc1;    code[idx++] = 0xe0;
+    code[idx++] = 0x20;    code[idx++] = 0x48;
+    code[idx++] = 0x0d;    code[idx++] = 0x2f;
+    code[idx++] = 0x62;    code[idx++] = 0x69;
+    code[idx++] = 0x6e;    code[idx++] = 0x50;
+    code[idx++] = 0x48;    code[idx++] = 0x89;
+    code[idx++] = 0xe7;    code[idx++] = 0xb8;
+    code[idx++] = 0x65;    code[idx++] = 0xff;
+    code[idx++] = 0xff;    code[idx++] = 0xff;
+    code[idx++] = 0x48;    code[idx++] = 0xc1;
+    code[idx++] = 0xe0;    code[idx++] = 0x38;
+    code[idx++] = 0x48;    code[idx++] = 0xc1;
+    code[idx++] = 0xe8;    code[idx++] = 0x38;
+    code[idx++] = 0x50;    code[idx++] = 0xb8;
+    code[idx++] = 0x67;    code[idx++] = 0x65;
+    code[idx++] = 0x63;    code[idx++] = 0x68;
+    code[idx++] = 0x48;    code[idx++] = 0xc1;
+    code[idx++] = 0xe0;    code[idx++] = 0x20;
+    code[idx++] = 0x48;    code[idx++] = 0x0d;
+    code[idx++] = 0x68;    code[idx++] = 0x6f;
+    code[idx++] = 0x65;    code[idx++] = 0x20;
+    code[idx++] = 0x50;    code[idx++] = 0x48;
+    code[idx++] = 0x89;    code[idx++] = 0xe3;
+    code[idx++] = 0x48;    code[idx++] = 0x31;
+    code[idx++] = 0xc0;    code[idx++] = 0x50;
+    code[idx++] = 0x53;    code[idx++] = 0x57;
+    code[idx++] = 0x48;    code[idx++] = 0x89;
+    code[idx++] = 0xe6;    code[idx++] = 0x48;
+    code[idx++] = 0x31;    code[idx++] = 0xd2;
+    code[idx++] = 0xb8;    code[idx++] = 0x3b;
+    code[idx++] = 0xff;    code[idx++] = 0xff;
+    code[idx++] = 0xff;    code[idx++] = 0x48;
+    code[idx++] = 0xc1;    code[idx++] = 0xe0;
+    code[idx++] = 0x38;    code[idx++] = 0x48;
+    code[idx++] = 0xc1;    code[idx++] = 0xe8;
+    code[idx++] = 0x38;    code[idx++] = 0x0f;
+    code[idx++] = 0x05;
+    return idx;
+}
+
+
 int main()
 {
     FILE* badfile_fp = fopen("badfile.txt", "w");
@@ -75,7 +130,7 @@ int main()
 
     // asm
     char code[1000];
-    int len = asm1(code);
+    int len = asm2(code);
     printf("code len = %d\n", len);
 
     char file1[1000];

@@ -1,6 +1,6 @@
 #-*-sh-*-
 
-file=overflow.asm
+file=overflow-2.asm
 
 tput reset
 if as -o overflow.o $file; then # gas assembler
