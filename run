@@ -1,8 +1,9 @@
 #-*-sh-*-
 
-#sudo sysctl -w kernel.randomize_va=0
+#sudo sysctl -w kernel.randomize_va_space=0
 
 file=badcode.c
+# file=badfile-gen.c
 flags="-g -z execstack -fno-stack-protector"
 
 if gcc $flags $file; then

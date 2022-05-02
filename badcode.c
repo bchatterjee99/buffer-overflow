@@ -3,29 +3,37 @@
 #include <string.h>
 
 
-int foo(char* arr)
+int function2(char* str2)
 {
     char buffer[100];
-    strcpy(buffer, arr);
+    strcpy(buffer, str2);
+    return 1;
+}
+
+int function1(char* str1, char* str2)
+{
+    char buffer[300];
+    printf("function1 buffer: %p\n", &buffer);
+    strcpy(buffer, str1);
+    function2(str2);
+    return 1;
 }
 
 int main()
 {
-    char str[400];
-    FILE* badfile;
+    char str1[400];
+    char str2[400];
+    FILE* fp1;
+    FILE* fp2;
 
-    badfile = fopen("badfile", "r");
-    fread(str, sizeof(char), 300, badfile);
+    fp1 = fopen("asm-1.txt", "r");
+    fread(str1, sizeof(char), 300, fp1);
 
-    /* for(int i=0; i<15; i++) */
-    /* { */
-    /* 	printf("%d: %d %c\n", i, str[i], str[i]); */
-    /* } */
+    fp2 = fopen("badfile.txt", "r");
+    fread(str2, sizeof(char), 300, fp2);
 
-
-    foo(str);
-    printf("Returned Properly\n");
+    function1(str1, str2);
+    printf("returned\n");
     
-
     return 0;
 }
